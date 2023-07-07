@@ -18,5 +18,5 @@ router.put(
   validateBody(schemas.addSchema),
   contactController.updateContact
 );
-
+// в пут,пост,делет вставляем правила валидации со схемы
 module.exports = router;

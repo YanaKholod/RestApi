@@ -1,5 +1,5 @@
 const { HttpErrors } = require("../helpers/HttpErrors");
-
+// валидационные правила принимающие схему
 const validateBody = (schema) => {
   const func = (req, res, next) => {
     const { error } = schema.validate(req.body);

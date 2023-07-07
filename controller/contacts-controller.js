@@ -43,7 +43,7 @@ const updateContact = async (req, res) => {
 
   res.json(updContact);
 };
-
+// запиханы вадилации в отдельную обертку, в которую собсна тут и оборачиваем
 module.exports = {
   getAll: ctrlWrapper(getAll),
   getById: ctrlWrapper(getById),
