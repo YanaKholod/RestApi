@@ -1,3 +1,5 @@
+// создаем и настраиваем сервер
+
 const express = require("express");
 const logger = require("morgan");
 const cors = require("cors");
