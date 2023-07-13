@@ -1,6 +1,5 @@
 const { HttpErrors } = require("../helpers/HttpErrors");
 const ctrlWrapper = require("../decorator/controllWrapper");
-// const contacts = require("../models/contacts");
 const Contact = require("../models/contact"); // модель=класс
 
 const getAll = async (req, res) => {
