@@ -1,22 +1,41 @@
 const express = require("express");
-const contactController = require("../../controller/contacts-controller");
+const contactController = require("../../controller/contacts/contacts-controller");
 const validateBody = require("../../decorator/validateBody");
-const schemas = require("../../schemas/contactsSchema");
+const schemas = require("../../models/contact");
+const { isValidId } = require("../../middleware");
 
 const router = express.Router();
 
 router.get("/", contactController.getAll);
-router.get("/:contactId", contactController.getById);
-router.post("/", validateBody(schemas.addSchema), contactController.addContact);
+
+router.get("/:id", isValidId, contactController.getById);
+
+router.post(
+  "/",
+  validateBody(schemas.movieSchema),
+  contactController.addContact
+);
+
 router.delete(
-  "/:contactId",
+  "/:id",
+  isValidId,
   validateBody(schemas.addSchema),
-  contactController.deleteContact
+  contactController.deleteContactById
 );
+
 router.put(
-  "/:contactId",
+  "/:id",
+  isValidId,
   validateBody(schemas.addSchema),
-  contactController.updateContact
+  contactController.updateContactById
 );
+
+router.patch(
+  "/:id/favorite",
+  isValidId,
+  validateBody(schemas.contactUpdateSchema),
+  contactController.updateFavorite
+);
+
 // в пут,пост,делет вставляем правила валидации со схемы
 module.exports = router;
