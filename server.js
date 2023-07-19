@@ -1,22 +1,21 @@
-// то что пользуется базами
-
-const mongoose = require("mongoose"); // подключаемся к базе
+const mongoose = require("mongoose");
 const app = require("./app");
-// const { DB_HOST } = require("./config"); // подключение с конфиг файла
-// const { DB_HOST } = process.env; // импорт с переменных окружения
+
+// pass: 1JUK9JPUWrztR9y3
+
 const DB_HOST =
-  "mongodb+srv://kholodjanapups:jEeLwmQRFvrdqYjv@yana.ihalwdp.mongodb.net/db-contacts?retryWrites=true&w=majority";
+  "mongodb+srv://kholodjana:1JUK9JPUWrztR9y3@yana.ihalwdp.mongodb.net/db-contacts?retryWrites=true&w=majority";
+const PORT = 3000;
 
 mongoose
-  .connect(DB_HOST, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(DB_HOST)
   .then(() => {
-    app.listen(3000, () => {
-      console.log("Database connection successful");
-    }); // подключаемся к базе и потом только запускаем сервер
+    console.log("Database connection successful");
+    app.listen(PORT, () => {
+      console.log("Server running. Use our API on port: 3000");
+    });
   })
   .catch((error) => {
     console.log(error.message);
-    process.exit(1); // закрывает все фонновые процессы
+    process.exit(1);
   });
-
-// pass: jEeLwmQRFvrdqYjv

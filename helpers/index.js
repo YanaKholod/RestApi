@@ -1,7 +1,9 @@
-const HttpErrors = require("./HttpErrors.js");
-const CtrlWrapper = require("../controller/contacts-controller.js");
+const HttpError = require("./HttpError");
+const ctrlWrapper = require("./ctlrWrapper");
+const handleMongooseError = require("./handleMongooseError");
 
 module.exports = {
-  HttpErrors,
-  CtrlWrapper,
+  HttpError,
+  ctrlWrapper,
+  handleMongooseError,
 };
