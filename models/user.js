@@ -1,6 +1,4 @@
-// const { Schema, model } = require("mongoose");
-// const { handleMongooseError } = require("../helpers");
-const Joi = require("joi");
+// const Joi = require("joi");
 const { Schema, model } = require("mongoose");
 const { handleMongooseError } = require("../helpers");
 
@@ -39,28 +37,25 @@ const userSchema = new Schema(
 );
 userSchema.post("save", handleMongooseError);
 
-const registerSchema = Joi.object({
-  name: Joi.string().required(),
-  email: Joi.string().pattern(emailRegexp).required(),
-  password: Joi.string().min(6).required(),
-});
+// const registerSchema = Joi.object({
+//   name: Joi.string().required(),
+//   email: Joi.string().pattern(emailRegexp).required(),
+//   password: Joi.string().min(6).required(),
+// });
 
-const loginSchema = Joi.object({
-  email: Joi.string().required(),
-  password: Joi.string().min(6).required(),
-});
+// const loginSchema = Joi.object({
+//   email: Joi.string().required(),
+//   password: Joi.string().min(6).required(),
+// });
 
-const updateSubscriptionSchema = Joi.object({
-  subscription: Joi.string()
-    .valid(...subscriptionList)
-    .required(),
-});
+// const updateSubscriptionSchema = Joi.object({
+//   subscription: Joi.string()
+//     .valid(...subscriptionList)
+//     .required(),
+// });
 
 const User = model("user", userSchema);
 
-const schemas = { registerSchema, loginSchema, updateSubscriptionSchema };
+// const schemas = { registerSchema, loginSchema, updateSubscriptionSchema };
 
-module.exports = {
-  User,
-  schemas,
-};
+module.exports = User;

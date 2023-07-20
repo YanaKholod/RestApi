@@ -5,14 +5,14 @@ const app = require("./app");
 
 const DB_HOST =
   "mongodb+srv://kholodjana:1JUK9JPUWrztR9y3@yana.ihalwdp.mongodb.net/db-contacts?retryWrites=true&w=majority";
-const PORT = 3000;
+const PORT = 6000;
 
 mongoose
   .connect(DB_HOST)
   .then(() => {
     console.log("Database connection successful");
     app.listen(PORT, () => {
-      console.log("Server running. Use our API on port: 3000");
+      console.log("Server running. Use our API on port: 6000");
     });
   })
   .catch((error) => {

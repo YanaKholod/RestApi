@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
-const { User } = require("../../models/user");
 const { HttpError } = require("../../helpers");
+const User = require("../../models/user");
 
 const register = async (req, res, next) => {
   console.log("Received a request to register:", req.body);
