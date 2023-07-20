@@ -1,5 +1,3 @@
-// убрала дублирующийся код инкапсулировав его тута ==>контроллер-обертка
-
 const ctrlWrapper = (ctrl) => {
   const func = async (req, res, next) => {
     try {
